@@ -271,3 +271,40 @@ footer a:hover { color: var(--accent); }
   .offer-selection__actions { grid-column: auto; grid-row: auto; justify-items: start; }
   .offers-footer { gap: 9px; flex-direction: column; }
 }
+@media (max-width: 768px) {
+  /* Service and payment choices: show clearly in one column */
+  .choice-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .choice-option span {
+    min-height: 54px;
+    padding: 15px;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  /* Offer cards: keep action text visible without hover */
+  .offer-card__select {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Offer booking buttons: full-width and easy to tap */
+  .offer-selection {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-selection__actions {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+  }
+
+  .offer-selection__actions a,
+  .offer-selection__actions button {
+    width: 100%;
+  }
+}
