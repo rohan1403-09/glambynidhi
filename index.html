@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nidhi's freelance makeup and salon services." />
+    <title>Glow by Nidhi | Makeup Artist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="blur blur-pink"></div>
+    <div class="blur blur-lilac"></div>
+
+    <main class="page-shell">
+      <header class="navigation glass">
+        <a class="brand" href="#top">glow<span>.</span></a>
+        <nav aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="offers.html">Offers</a>
+          <a href="#about">About</a>
+          <a href="#booking">Book</a>
+        </nav>
+        <a class="nav-button" href="#booking">Book a look</a>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="hero-copy glass">
+          <p class="eyebrow">FREELANCE MAKEUP ARTIST</p>
+          <h1>Beauty, softly<br /><em>enhanced.</em></h1>
+          <p class="intro">
+            Personalised makeup and salon services for weddings, celebrations,
+            photoshoots, and every moment you want to feel your best.
+          </p>
+          <a class="primary-button" href="#booking">Reserve your date <span>↗</span></a>
+          <div class="trust-row">
+            <div><strong>100+</strong><span>happy clients</span></div>
+            <div><strong>5.0</strong><span>client rating</span></div>
+            <div><strong>On-site</strong><span>available</span></div>
+          </div>
+        </div>
+
+        <div class="hero-image glass">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=85" alt="A soft, elegant makeup look" />
+          <p class="image-note">your glow, your way ✦</p>
+        </div>
+      </section>
+
+      <section class="services" id="services">
+        <p class="eyebrow">SERVICES</p>
+        <div class="service-list">
+          <article class="service glass">
+            <span class="number">01</span>
+            <div><h2>Bridal Makeup</h2><p>Timeless, long-lasting makeup for your most special day.</p></div>
+            <strong>From ₹2500</strong>
+          </article>
+          <article class="service glass">
+            <span class="number">02</span>
+            <div><h2>Party Makeup</h2><p>Fresh glam for celebrations, events, and evenings out.</p></div>
+            <strong>From ₹2500</strong>
+          </article>
+          <article class="service glass">
+            <span class="number">03</span>
+            <div><h2>Hair Styling</h2><p>Polished hairstyles designed to complete your look.</p></div>
+            <strong>₹500</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="about glass" id="about">
+        <div>
+          <p class="eyebrow">MEET YOUR ARTIST</p>
+          <h2>Hi, I’m <em>Nidhi.</em></h2>
+        </div>
+        <p>
+          I create beautifully natural looks that feel like you—only more confident.
+          Every appointment is personalised with care, quality products, and attention to detail.
+        </p>
+      </section>
+
+      <section class="booking glass" id="booking">
+        <div class="booking-copy">
+          <p class="eyebrow">MAKE AN ENQUIRY</p>
+          <h2>Your next beautiful<br /><em>moment starts here.</em></h2>
+          <p>Leave your details and we’ll be in touch to confirm availability.</p>
+        </div>
+
+        <form class="booking-form" id="booking-form">
+          <label><span>Your name</span><input name="name" type="text" autocomplete="name" required /></label>
+          <label><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" required /></label>
+          <label><span>Address</span><input name="address" type="text" autocomplete="street-address" required /></label>
+          <fieldset class="choice-field" id="service-choice-field">
+            <legend>Choose a service</legend>
+            <div class="choice-grid">
+              <label class="choice-option">
+                <input type="radio" name="service" value="Bridal Makeup" required />
+                <span>Bridal Makeup</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="service" value="Party Makeup" />
+                <span>Party Makeup</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="service" value="Hair Styling — ₹500" />
+                <span>Hair Styling<br />₹500</span>
+              </label>
+            </div>
+          </fieldset>
+          <p class="selected-offer" id="selected-offer" hidden>
+            Offer selected: <strong id="selected-offer-name"></strong>
+            <button class="cancel-offer" id="cancel-offer" type="button">Cancel offer</button>
+          </p>
+          <div class="field-row">
+            <label><span>Preferred date</span><input name="date" id="booking-date" type="date" required /></label>
+            <label><span>Preferred time</span><input name="time" type="time" required /></label>
+          </div>
+          <fieldset class="choice-field">
+            <legend>Payment method</legend>
+            <div class="choice-grid choice-grid--payment">
+              <label class="choice-option">
+                <input type="radio" name="payment" value="UPI" required />
+                <span>UPI</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="payment" value="Cash" />
+                <span>Cash</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="payment" value="Bank Transfer" />
+                <span>Bank Transfer</span>
+              </label>
+            </div>
+          </fieldset>
+          <button type="submit">Continue in WhatsApp <span>↗</span></button>
+          <p class="form-message" id="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <footer>
+        <p>© 2026 Glow by Nidhi</p>
+        <a href="https://www.instagram.com/glambynidhi15/" target="_blank" rel="noopener noreferrer">Instagram @glambynidhi15 ↗</a>
+        <p>Makeup · Hair · Salon</p>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
