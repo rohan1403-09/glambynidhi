@@ -5,6 +5,12 @@ const selectedOffer = document.querySelector("#selected-offer");
 const selectedOfferName = document.querySelector("#selected-offer-name");
 const cancelOffer = document.querySelector("#cancel-offer");
 const serviceChoiceField = document.querySelector("#service-choice-field");
+const homeOfferCards = document.querySelectorAll(".home-offer-card");
+const homeOfferSelection = document.querySelector("#home-offer-selection");
+const homeSelectedOfferName = document.querySelector("#home-selected-offer-name");
+const bookHomeOffer = document.querySelector("#book-home-offer");
+const bookHomeOfferAndService = document.querySelector("#book-home-offer-and-service");
+const cancelHomeOffer = document.querySelector("#cancel-home-offer");
 
 // Replace this with Nidhi's WhatsApp number: country code + number, with no + or spaces.
 // Example for India: 919876543210
@@ -15,6 +21,15 @@ bookingDate.min = new Date().toISOString().split("T")[0];
 const bookingParameters = new URLSearchParams(window.location.search);
 let activeOffer = bookingParameters.get("offer");
 const addAnotherService = bookingParameters.get("both") === "true";
+
+function applyOfferToBooking(offer, includeAnotherService) {
+  activeOffer = offer;
+  selectedOfferName.textContent = offer;
+  selectedOffer.hidden = false;
+  serviceChoiceField.hidden = !includeAnotherService;
+  serviceChoiceField.disabled = !includeAnotherService;
+  document.querySelector("#booking").scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 if (activeOffer) {
   selectedOfferName.textContent = activeOffer;
@@ -37,6 +52,32 @@ cancelOffer.addEventListener("click", () => {
   const cleanQuery = bookingParameters.toString();
   const cleanUrl = `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ""}#booking`;
   window.history.replaceState({}, "", cleanUrl);
+  homeOfferCards.forEach((card) => card.classList.remove("is-selected"));
+  if (homeOfferSelection) homeOfferSelection.hidden = true;
+});
+
+homeOfferCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const offer = card.dataset.homeOffer;
+    homeOfferCards.forEach((item) => item.classList.remove("is-selected"));
+    card.classList.add("is-selected");
+    homeSelectedOfferName.textContent = offer;
+    homeOfferSelection.hidden = false;
+  });
+});
+
+bookHomeOffer.addEventListener("click", () => {
+  applyOfferToBooking(homeSelectedOfferName.textContent, false);
+});
+
+bookHomeOfferAndService.addEventListener("click", () => {
+  applyOfferToBooking(homeSelectedOfferName.textContent, true);
+});
+
+cancelHomeOffer.addEventListener("click", () => {
+  homeOfferCards.forEach((card) => card.classList.remove("is-selected"));
+  homeSelectedOfferName.textContent = "";
+  homeOfferSelection.hidden = true;
 });
 
 const hasWhatsAppNumber = () => !nidhiWhatsAppNumber.includes("X");
