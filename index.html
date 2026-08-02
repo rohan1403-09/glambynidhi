@@ -19,7 +19,7 @@
         <a class="brand" href="#top">glow<span>.</span></a>
         <nav aria-label="Main navigation">
           <a href="#services">Services</a>
-          <a href="offers.html">Offers</a>
+          <a href="#offers">Offers</a>
           <a href="#about">About</a>
           <a href="#booking">Book</a>
         </nav>
@@ -66,6 +66,47 @@
             <div><h2>Hair Styling</h2><p>Polished hairstyles designed to complete your look.</p></div>
             <strong>₹500</strong>
           </article>
+        </div>
+      </section>
+
+      <section class="home-offers" id="offers">
+        <div class="home-offers__intro">
+          <p class="eyebrow eyebrow--light">SPECIAL OFFERS</p>
+          <h2>Choose your<br /><em>glow ritual.</em></h2>
+          <p>Tap an offer to select it, then choose whether to book the offer alone or add another service.</p>
+        </div>
+
+        <div class="home-offer-grid" aria-label="Special offers">
+          <button class="home-offer-card" type="button" data-home-offer="Vitamin C Facial — ₹1500">
+            <span>01</span><strong>Vitamin C Facial</strong><b>₹1,500</b>
+            <small>Free Vitamin C bleach, half-leg waxing, and thread work.</small>
+          </button>
+          <button class="home-offer-card" type="button" data-home-offer="Astaberry Whitening & Brightening Facial — ₹900">
+            <span>02</span><strong>Astaberry Whitening &amp; Brightening Facial</strong><b>₹900</b>
+            <small>Free Oxy bleach and aloe vera hand waxing.</small>
+          </button>
+          <button class="home-offer-card" type="button" data-home-offer="Aroma Bridal Glow Facial — ₹1000">
+            <span>03</span><strong>Aroma Bridal Glow Facial</strong><b>₹1,000</b>
+            <small>Free face, neck and back bleach plus thread work.</small>
+          </button>
+          <button class="home-offer-card" type="button" data-home-offer="Lotus Whitening Facial — ₹1150">
+            <span>04</span><strong>Lotus Whitening Facial</strong><b>₹1,150</b>
+            <small>Free Oxy bleach, hand waxing, and half-leg waxing.</small>
+          </button>
+          <button class="home-offer-card" type="button" data-home-offer="O3+ Whitening & Brightening Facial — ₹2000">
+            <span>05</span><strong>O3+ Whitening &amp; Brightening Facial</strong><b>₹2,000</b>
+            <small>Free Oxy bleach, aloe vera hand waxing, and thread work.</small>
+          </button>
+        </div>
+
+        <div class="home-offer-selection" id="home-offer-selection" hidden aria-live="polite">
+          <p>Selected offer</p>
+          <strong id="home-selected-offer-name"></strong>
+          <div>
+            <button id="book-home-offer" type="button">Book this offer ↗</button>
+            <button id="book-home-offer-and-service" type="button">Offer + another service</button>
+            <button id="cancel-home-offer" type="button">Cancel selection</button>
+          </div>
         </div>
       </section>
 
