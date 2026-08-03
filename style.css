@@ -138,6 +138,17 @@ em { font-style: italic; }
 .reviews__loading { color: var(--soft-ink); }
 .reviews__error { border-color: var(--accent-border); color: var(--ink); }
 
+.instagram-showcase { display: grid; grid-template-columns: 1fr auto; gap: 35px; align-items: center; margin: 0 0 110px; padding: clamp(30px, 5vw, 58px); overflow: hidden; border: 1px solid rgba(255, 194, 218, .28); border-radius: 28px; background: radial-gradient(circle at 88% 8%, rgba(255, 124, 177, .42), transparent 17rem), radial-gradient(circle at 7% 102%, rgba(133, 46, 97, .54), transparent 22rem), #120a10; color: #fff5f8; }
+.instagram-showcase h2 { color: #fff8fa; font-size: clamp(2.3rem, 4.7vw, 4rem); line-height: .98; }
+.instagram-showcase h2 em { color: #ff9dbe; }
+.instagram-showcase__copy > p:last-child { max-width: 470px; margin: 18px 0 0; color: rgba(255, 245, 248, .72); font-size: .9rem; line-height: 1.65; }
+.instagram-showcase__link { display: flex; min-width: 265px; padding: 19px 22px; gap: 14px; align-items: center; border: 1px solid rgba(255, 200, 220, .45); border-radius: 17px; background: rgba(255,255,255,.1); color: #fff8fa; text-decoration: none; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.instagram-showcase__link:hover { transform: translateY(-4px); border-color: #ff9dbe; background: rgba(255, 122, 176, .18); }
+.instagram-showcase__icon { display: grid; width: 44px; height: 44px; flex: 0 0 auto; place-items: center; border-radius: 14px; background: linear-gradient(135deg, #ffb5d0, #e25997); color: #3b1028; font-size: 2rem; line-height: 1; }
+.instagram-showcase__link span:last-child { display: grid; gap: 5px; }
+.instagram-showcase__link b { font-size: .93rem; }
+.instagram-showcase__link small { color: #ffbed4; font-size: .73rem; }
+
 .booking { display: grid; grid-template-columns: 1fr .9fr; gap: 55px; align-items: center; margin-bottom: 66px; padding: clamp(28px, 5vw, 64px); border-radius: 28px; }
 .booking-copy h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; }
 .call-option { display: flex; width: fit-content; margin-top: 24px; padding: 11px 14px; gap: 13px; align-items: center; border: 1px solid var(--accent-border); border-radius: 10px; background: rgba(255,251,244,.45); color: var(--soft-ink); font-size: .78rem; text-decoration: none; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
@@ -215,6 +226,8 @@ footer a:hover { color: var(--accent); }
   .reviews__header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .reviews__summary { width: 100%; }
   .reviews__list { grid-template-columns: 1fr; }
+  .instagram-showcase { grid-template-columns: 1fr; gap: 25px; margin-bottom: 75px; }
+  .instagram-showcase__link { width: 100%; min-width: 0; }
   .booking { gap: 35px; }
   footer { gap: 8px; flex-direction: column; }
 }
