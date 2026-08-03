@@ -7,7 +7,7 @@
     <title>Glow by Nidhi | Makeup Artist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -21,6 +21,7 @@
           <a href="#services">Services</a>
           <a href="#offers">Offers</a>
           <a href="#about">About</a>
+          <a href="#reviews">Reviews</a>
           <a href="#booking">Book</a>
         </nav>
         <a class="nav-button" href="#booking">Book a look</a>
@@ -37,7 +38,7 @@
           <a class="primary-button" href="#booking">Reserve your date <span>↗</span></a>
           <div class="trust-row">
             <div><strong>100+</strong><span>happy clients</span></div>
-            <div><strong>5.0</strong><span>client rating</span></div>
+            <div><strong id="hero-rating">—</strong><span>client rating</span></div>
             <div><strong>On-site</strong><span>available</span></div>
           </div>
         </div>
@@ -131,6 +132,64 @@
         </p>
       </section>
 
+      <section class="reviews" id="reviews">
+        <div class="reviews__header">
+          <div>
+            <p class="eyebrow">CLIENT REVIEWS</p>
+            <h2>What clients<br /><em>are saying.</em></h2>
+          </div>
+          <div class="reviews__summary glass" id="reviews-summary" aria-live="polite">
+            <strong id="reviews-average">—</strong>
+            <div class="reviews__stars" id="reviews-summary-stars" aria-hidden="true">☆☆☆☆☆</div>
+            <span id="reviews-count">No reviews yet</span>
+          </div>
+        </div>
+
+        <div class="reviews__list" id="reviews-list" aria-label="Client reviews"></div>
+
+        <div class="review-form glass">
+          <p class="eyebrow">SHARE YOUR EXPERIENCE</p>
+          <h3>Leave a <em>review</em></h3>
+          <p class="review-form__help">Had an appointment with Nidhi? We’d love to hear how it went.</p>
+          <form id="review-form">
+            <label><span>Your name</span><input name="reviewer-name" type="text" autocomplete="name" required maxlength="80" /></label>
+            <label>
+              <span>Service</span>
+              <select name="review-service">
+                <option value="">Select a service (optional)</option>
+                <option>Bridal Makeup</option>
+                <option>Party Makeup</option>
+                <option>Hair Styling</option>
+                <option>Vitamin C Facial</option>
+                <option>Astaberry Whitening &amp; Brightening Facial</option>
+                <option>Aroma Bridal Glow Facial</option>
+                <option>Lotus Whitening Facial</option>
+                <option>O3+ Whitening &amp; Brightening Facial</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <fieldset class="rating-field">
+              <legend>Your rating</legend>
+              <div class="star-rating" id="star-rating">
+                <input type="radio" name="rating" id="star-5" value="5" required />
+                <label for="star-5" title="5 stars">★</label>
+                <input type="radio" name="rating" id="star-4" value="4" />
+                <label for="star-4" title="4 stars">★</label>
+                <input type="radio" name="rating" id="star-3" value="3" />
+                <label for="star-3" title="3 stars">★</label>
+                <input type="radio" name="rating" id="star-2" value="2" />
+                <label for="star-2" title="2 stars">★</label>
+                <input type="radio" name="rating" id="star-1" value="1" />
+                <label for="star-1" title="1 star">★</label>
+              </div>
+            </fieldset>
+            <label><span>Your review</span><textarea name="review-text" rows="4" placeholder="Tell us about your experience…" required minlength="10" maxlength="500"></textarea></label>
+            <button type="submit">Submit review <span>↗</span></button>
+            <p class="form-message" id="review-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
       <section class="booking glass" id="booking">
         <div class="booking-copy">
           <p class="eyebrow">MAKE AN ENQUIRY</p>
@@ -198,6 +257,7 @@
         <p>Makeup · Hair · Salon</p>
       </footer>
     </main>
+    <script src="reviews.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
