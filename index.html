@@ -50,22 +50,32 @@
 
       <section class="services" id="services">
         <p class="eyebrow">SERVICES</p>
-        <div class="service-list">
-          <article class="service glass">
+        <p class="section-help">Tap a service to select it for your appointment.</p>
+        <div class="service-list" aria-label="Makeup and salon services">
+          <button class="service service-card glass" type="button" data-service="Bridal Makeup" data-price="2500">
             <span class="number">01</span>
             <div><h2>Bridal Makeup</h2><p>Timeless, long-lasting makeup for your most special day.</p></div>
             <strong>From ₹2500</strong>
-          </article>
-          <article class="service glass">
+          </button>
+          <button class="service service-card glass" type="button" data-service="Party Makeup" data-price="2500">
             <span class="number">02</span>
             <div><h2>Party Makeup</h2><p>Fresh glam for celebrations, events, and evenings out.</p></div>
             <strong>From ₹2500</strong>
-          </article>
-          <article class="service glass">
+          </button>
+          <button class="service service-card glass" type="button" data-service="Hair Styling" data-price="500">
             <span class="number">03</span>
             <div><h2>Hair Styling</h2><p>Polished hairstyles designed to complete your look.</p></div>
             <strong>₹500</strong>
-          </article>
+          </button>
+        </div>
+        <div class="service-selection" id="service-selection" hidden aria-live="polite">
+          <p>Selected service</p>
+          <strong id="selected-service-card-name"></strong>
+          <div>
+            <button id="book-selected-service" type="button">Continue to booking</button>
+            <button id="book-service-and-offer" type="button">Service + an offer</button>
+            <button id="cancel-service-card" type="button">Cancel selection</button>
+          </div>
         </div>
       </section>
 
@@ -77,23 +87,23 @@
         </div>
 
         <div class="home-offer-grid" aria-label="Special offers">
-          <button class="home-offer-card" type="button" data-home-offer="Vitamin C Facial — ₹1500">
+          <button class="home-offer-card" type="button" data-home-offer="Vitamin C Facial" data-price="1500">
             <span>01</span><strong>Vitamin C Facial</strong><b>₹1,500</b>
             <small>Free Vitamin C bleach, half-leg waxing, and thread work.</small>
           </button>
-          <button class="home-offer-card" type="button" data-home-offer="Astaberry Whitening & Brightening Facial — ₹900">
+          <button class="home-offer-card" type="button" data-home-offer="Astaberry Whitening & Brightening Facial" data-price="900">
             <span>02</span><strong>Astaberry Whitening &amp; Brightening Facial</strong><b>₹900</b>
             <small>Free Oxy bleach and aloe vera hand waxing.</small>
           </button>
-          <button class="home-offer-card" type="button" data-home-offer="Aroma Bridal Glow Facial — ₹1000">
+          <button class="home-offer-card" type="button" data-home-offer="Aroma Bridal Glow Facial" data-price="1000">
             <span>03</span><strong>Aroma Bridal Glow Facial</strong><b>₹1,000</b>
             <small>Free face, neck and back bleach plus thread work.</small>
           </button>
-          <button class="home-offer-card" type="button" data-home-offer="Lotus Whitening Facial — ₹1150">
+          <button class="home-offer-card" type="button" data-home-offer="Lotus Whitening Facial" data-price="1150">
             <span>04</span><strong>Lotus Whitening Facial</strong><b>₹1,150</b>
             <small>Free Oxy bleach, hand waxing, and half-leg waxing.</small>
           </button>
-          <button class="home-offer-card" type="button" data-home-offer="O3+ Whitening & Brightening Facial — ₹2000">
+          <button class="home-offer-card" type="button" data-home-offer="O3+ Whitening & Brightening Facial" data-price="2000">
             <span>05</span><strong>O3+ Whitening &amp; Brightening Facial</strong><b>₹2,000</b>
             <small>Free Oxy bleach, aloe vera hand waxing, and thread work.</small>
           </button>
@@ -126,57 +136,60 @@
           <p class="eyebrow">MAKE AN ENQUIRY</p>
           <h2>Your next beautiful<br /><em>moment starts here.</em></h2>
           <p>Leave your details and we’ll be in touch to confirm availability.</p>
+          <a class="call-option" href="tel:+919871331161">
+            <span>Call Nidhi</span>
+            <strong>98713 31161 ↗</strong>
+          </a>
         </div>
 
         <form class="booking-form" id="booking-form">
           <label><span>Your name</span><input name="name" type="text" autocomplete="name" required /></label>
           <label><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" required /></label>
           <label><span>Address</span><input name="address" type="text" autocomplete="street-address" required /></label>
-          <fieldset class="choice-field" id="service-choice-field">
-            <legend>Choose a service</legend>
-            <div class="choice-grid">
-              <label class="choice-option">
-                <input type="radio" name="service" value="Bridal Makeup" required />
-                <span>Bridal Makeup</span>
-              </label>
-              <label class="choice-option">
-                <input type="radio" name="service" value="Party Makeup" />
-                <span>Party Makeup</span>
-              </label>
-              <label class="choice-option">
-                <input type="radio" name="service" value="Hair Styling — ₹500" />
-                <span>Hair Styling<br />₹500</span>
-              </label>
-            </div>
-          </fieldset>
           <p class="selected-offer" id="selected-offer" hidden>
             Offer selected: <strong id="selected-offer-name"></strong>
             <button class="cancel-offer" id="cancel-offer" type="button">Cancel offer</button>
+          </p>
+          <p class="selected-offer" id="selected-service" hidden>
+            Service selected: <strong id="selected-service-name"></strong>
+            <button class="cancel-offer" id="cancel-service" type="button">Cancel service</button>
           </p>
           <div class="field-row">
             <label><span>Preferred date</span><input name="date" id="booking-date" type="date" required /></label>
             <label><span>Preferred time</span><input name="time" type="time" required /></label>
           </div>
-          <fieldset class="choice-field">
-            <legend>Payment method</legend>
-            <div class="choice-grid choice-grid--payment">
-              <label class="choice-option">
-                <input type="radio" name="payment" value="UPI" required />
-                <span>UPI</span>
-              </label>
-              <label class="choice-option">
-                <input type="radio" name="payment" value="Cash" />
-                <span>Cash</span>
-              </label>
-              <label class="choice-option">
-                <input type="radio" name="payment" value="Bank Transfer" />
-                <span>Bank Transfer</span>
-              </label>
+          <section class="advance-payment" id="advance-payment" aria-live="polite">
+            <p class="advance-payment__eyebrow">50% ADVANCE PAYMENT</p>
+            <p class="advance-payment__note">Pay 50% now through Paytm. The remaining 50% is paid directly to Nidhi after the service.</p>
+            <div class="advance-payment__amounts">
+              <span>Total <b id="booking-total">Select a service or offer</b></span>
+              <span>Pay now <b id="advance-amount">—</b></span>
+              <span>Pay later <b id="remaining-amount">—</b></span>
             </div>
-          </fieldset>
-          <button type="submit">Continue in WhatsApp <span>↗</span></button>
+            <p class="advance-payment__upi">Paytm UPI: <strong>8368330997@ptyes</strong></p>
+            <button class="pay-advance" id="pay-advance" type="button" disabled>Pay 50% advance by UPI <span>↗</span></button>
+          </section>
+          <label class="screenshot-field">
+            <span>Payment screenshot</span>
+            <input id="payment-screenshot" name="payment-screenshot" type="file" accept="image/*" required disabled />
+            <small>First complete the 50% payment. Then upload its screenshot and send the booking to Nidhi in WhatsApp.</small>
+          </label>
+          <p class="payment-warning">Your advance is confirmed only after Nidhi verifies the Paytm payment and screenshot.</p>
+          <button id="send-booking" type="submit" disabled>Send booking &amp; payment proof <span>↗</span></button>
           <p class="form-message" id="form-message" aria-live="polite"></p>
         </form>
+      </section>
+
+      <section class="upi-modal" id="upi-payment-modal" hidden role="dialog" aria-modal="true" aria-labelledby="upi-payment-title">
+        <div class="upi-modal__card">
+          <button class="upi-modal__close" id="close-upi-payment" type="button" aria-label="Close payment QR">×</button>
+          <p class="eyebrow">PAYTM / UPI PAYMENT</p>
+          <h2 id="upi-payment-title">Scan to pay your<br /><em>50% advance.</em></h2>
+          <p>Open Paytm on your phone and scan this code. The amount is already filled in.</p>
+          <img id="upi-qr-code" alt="UPI payment QR code" />
+          <strong id="upi-qr-amount"></strong>
+          <small>Paytm UPI: 8368330997@ptyes</small>
+        </div>
       </section>
 
       <footer>
