@@ -1,0 +1,17 @@
+{
+  "name": "glow-salon-brochure",
+  "version": "1.0.0",
+  "description": "Glow by Nidhi salon brochure with review system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}

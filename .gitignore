@@ -1,0 +1,5 @@
+node_modules/
+reviews.db
+reviews.db-wal
+reviews.db-shm
+.env
