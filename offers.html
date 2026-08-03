@@ -1,102 +1,28 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Special facial and salon offers from Glow by Nidhi." />
-    <title>Special Offers | Glow by Nidhi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="offers-page">
-    <main class="offers-shell">
-      <header class="offers-navigation">
-        <a class="brand brand--light" href="index.html">glow<span>.</span></a>
-        <nav aria-label="Main navigation">
-          <a href="index.html#services">Services</a>
-          <a class="active" href="offers.html">Offers</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#reviews">Reviews</a>
-          <a href="index.html#booking">Book</a>
-        </nav>
-        <a class="instagram-link" href="https://www.instagram.com/glambynidhi15/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-      </header>
+const offerCards = document.querySelectorAll(".offer-card");
+const selectionPanel = document.querySelector("#offer-selection");
+const chosenOfferName = document.querySelector("#chosen-offer-name");
+const bookingLink = document.querySelector("#book-chosen-offer");
+const offerAndServiceLink = document.querySelector("#book-offer-and-service");
+const cancelSelection = document.querySelector("#cancel-offer-selection");
 
-      <section class="offers-hero">
-        <p class="eyebrow eyebrow--light">LIMITED-TIME PACKAGES</p>
-        <h1>Find your perfect<br /><em>glow ritual.</em></h1>
-        <p>Hover to explore. Click an offer to select it, then continue to your booking.</p>
-      </section>
+offerCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const offer = card.dataset.offer;
 
-      <section class="offer-grid" aria-label="Special offers">
-        <button class="offer-card" type="button" data-offer="Vitamin C Facial — ₹1500">
-          <span class="offer-number">01</span>
-          <span class="offer-card__content">
-            <span class="offer-card__name">Vitamin C Facial</span>
-            <span class="offer-card__price">₹1,500</span>
-            <span class="offer-card__details">Includes free Vitamin C bleach, half-leg waxing, and thread work.</span>
-          </span>
-          <span class="offer-card__select">Select offer <b>↗</b></span>
-        </button>
+    offerCards.forEach((item) => item.classList.remove("is-selected"));
+    card.classList.add("is-selected");
+    chosenOfferName.textContent = offer;
+    bookingLink.href = `index.html?offer=${encodeURIComponent(offer)}#booking`;
+    offerAndServiceLink.href = `index.html?offer=${encodeURIComponent(offer)}&both=true#services`;
+    selectionPanel.hidden = false;
+    selectionPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+});
 
-        <button class="offer-card" type="button" data-offer="Astaberry Whitening & Brightening Facial — ₹900">
-          <span class="offer-number">02</span>
-          <span class="offer-card__content">
-            <span class="offer-card__name">Astaberry Whitening &amp; Brightening Facial</span>
-            <span class="offer-card__price">₹900</span>
-            <span class="offer-card__details">Includes free Oxy bleach and aloe vera hand waxing.</span>
-          </span>
-          <span class="offer-card__select">Select offer <b>↗</b></span>
-        </button>
-
-        <button class="offer-card" type="button" data-offer="Aroma Bridal Glow Facial — ₹1000">
-          <span class="offer-number">03</span>
-          <span class="offer-card__content">
-            <span class="offer-card__name">Aroma Bridal Glow Facial</span>
-            <span class="offer-card__price">₹1,000</span>
-            <span class="offer-card__details">Includes free bleach for face, neck and back, plus thread work.</span>
-          </span>
-          <span class="offer-card__select">Select offer <b>↗</b></span>
-        </button>
-
-        <button class="offer-card" type="button" data-offer="Lotus Whitening Facial — ₹1150">
-          <span class="offer-number">04</span>
-          <span class="offer-card__content">
-            <span class="offer-card__name">Lotus Whitening Facial</span>
-            <span class="offer-card__price">₹1,150</span>
-            <span class="offer-card__details">Includes free Oxy bleach, hand waxing, and half-leg waxing.</span>
-          </span>
-          <span class="offer-card__select">Select offer <b>↗</b></span>
-        </button>
-
-        <button class="offer-card" type="button" data-offer="O3+ Whitening & Brightening Facial — ₹2000">
-          <span class="offer-number">05</span>
-          <span class="offer-card__content">
-            <span class="offer-card__name">O3+ Whitening &amp; Brightening Facial</span>
-            <span class="offer-card__price">₹2,000</span>
-            <span class="offer-card__details">Includes free Oxy bleach for face, neck and back, aloe vera hand waxing, and thread work.</span>
-          </span>
-          <span class="offer-card__select">Select offer <b>↗</b></span>
-        </button>
-      </section>
-
-      <section class="offer-selection" id="offer-selection" hidden aria-live="polite">
-        <p>Selected offer</p>
-        <strong id="chosen-offer-name"></strong>
-        <div class="offer-selection__actions">
-          <a id="book-chosen-offer" href="index.html#booking">Book this offer <span>↗</span></a>
-          <a class="offer-selection__secondary" id="book-offer-and-service" href="index.html#booking">Offer + another service</a>
-          <button id="cancel-offer-selection" type="button">Cancel selection</button>
-        </div>
-      </section>
-
-      <footer class="offers-footer">
-        <p>Glow by Nidhi · Beauty, softly enhanced.</p>
-        <a href="https://www.instagram.com/glambynidhi15/" target="_blank" rel="noopener noreferrer">@glambynidhi15 ↗</a>
-      </footer>
-    </main>
-    <script src="offers.js"></script>
-  </body>
-</html>
+cancelSelection.addEventListener("click", () => {
+  offerCards.forEach((card) => card.classList.remove("is-selected"));
+  chosenOfferName.textContent = "";
+  bookingLink.href = "index.html#booking";
+  offerAndServiceLink.href = "index.html#services";
+  selectionPanel.hidden = true;
+});
