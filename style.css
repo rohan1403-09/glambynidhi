@@ -53,17 +53,33 @@ em { font-style: italic; }
 .image-note { position: absolute; right: 25px; bottom: 25px; margin: 0; padding: 10px 13px; border: 1px solid rgba(255,255,255,.45); border-radius: 10px; background: rgba(58,42,48,.68); color: white; font-size: .78rem; backdrop-filter: blur(8px); }
 
 .services { margin: 110px 0; }
+.section-help { margin: -6px 0 18px; color: var(--soft-ink); font-size: .82rem; }
 .service-list { display: grid; gap: 12px; }
 .service { display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 20px; padding: 25px 28px; border-radius: 18px; transition: transform .18s ease, background .18s ease, box-shadow .18s ease; }
 .service:hover { transform: translateX(7px) scale(1.01); background: rgba(255,255,255,.58); box-shadow: 0 18px 35px rgba(83,51,61,.14); }
+.service-card { width: 100%; border: 1px solid var(--glass-border); color: var(--ink); cursor: pointer; font: inherit; text-align: left; }
+.service-card.is-selected { border-color: var(--accent); background: rgba(255, 255, 255, .67); box-shadow: 0 18px 35px rgba(215,126,149,.2); transform: translateX(7px) scale(1.01); }
+.service-card:focus-visible { outline: 3px solid rgba(215,126,149,.3); outline-offset: 3px; }
 .number, .service strong { font-size: .78rem; font-weight: 600; }
 .service p, .about > p, .booking-copy > p:not(.eyebrow) { margin: 7px 0 0; color: var(--soft-ink); font-size: .9rem; line-height: 1.6; }
+.service-selection { display: grid; grid-template-columns: 1fr auto; gap: 7px 26px; align-items: center; margin-top: 17px; padding: 20px 23px; border: 1px solid rgba(215,126,149,.42); border-radius: 17px; background: rgba(255,255,255,.36); }
+.service-selection[hidden] { display: none !important; }
+.service-selection > p { margin: 0; color: var(--accent); font-size: .71rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.service-selection > strong { font: 600 clamp(1.1rem, 2.4vw, 1.5rem)/1.15 "Playfair Display", serif; }
+.service-selection > div { display: grid; grid-column: 2; grid-row: 1 / 3; gap: 8px; }
+.service-selection button { padding: 11px 14px; border: 1px solid transparent; border-radius: 9px; background: var(--ink); color: #fff; cursor: pointer; font: 600 .78rem "DM Sans", sans-serif; transition: transform .18s ease, background .18s ease, border-color .18s ease; }
+.service-selection button:hover { transform: translateY(-2px); background: var(--accent); }
+.service-selection button:not(:first-child) { border-color: rgba(215,126,149,.5); background: transparent; color: var(--soft-ink); }
+.service-selection button:not(:first-child):hover { background: rgba(215,126,149,.1); color: var(--accent); }
 
 .about { display: grid; grid-template-columns: .8fr 1fr; gap: 70px; align-items: center; margin-bottom: 110px; padding: 45px; border-radius: 24px; }
 .about > p { max-width: 490px; margin: 0; }
 
 .booking { display: grid; grid-template-columns: 1fr .9fr; gap: 55px; align-items: center; margin-bottom: 66px; padding: clamp(28px, 5vw, 64px); border-radius: 28px; }
 .booking-copy h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; }
+.call-option { display: flex; width: fit-content; margin-top: 24px; padding: 11px 14px; gap: 13px; align-items: center; border: 1px solid rgba(215,126,149,.42); border-radius: 10px; background: rgba(255,255,255,.35); color: var(--soft-ink); font-size: .78rem; text-decoration: none; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+.call-option strong { color: var(--accent); font-size: .82rem; }
+.call-option:hover { transform: translateY(-2px); border-color: var(--accent); background: rgba(255,255,255,.62); }
 .booking-form { display: grid; gap: 13px; }
 .booking-form label { display: grid; gap: 6px; color: var(--soft-ink); font-size: .78rem; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -84,6 +100,32 @@ em { font-style: italic; }
 .selected-offer strong { color: var(--accent); }
 .cancel-offer { margin-left: 8px; padding: 3px 0; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: var(--soft-ink); cursor: pointer; font: inherit; font-size: .75rem; }
 .cancel-offer:hover { color: var(--accent); }
+.advance-payment { padding: 16px; border: 1px solid rgba(215,126,149,.38); border-radius: 12px; background: linear-gradient(135deg, rgba(215,126,149,.15), rgba(255,255,255,.38)); }
+.advance-payment__eyebrow { margin: 0; color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .13em; }
+.advance-payment__note { margin: 8px 0 0; color: var(--soft-ink); font-size: .8rem; line-height: 1.5; }
+.advance-payment__amounts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
+.advance-payment__amounts span { display: grid; gap: 4px; padding: 10px; border-radius: 8px; background: rgba(255,255,255,.55); color: var(--soft-ink); font-size: .7rem; }
+.advance-payment__amounts b { color: var(--ink); font-size: .86rem; }
+.advance-payment__upi { margin: 0; color: var(--soft-ink); font-size: .78rem; }
+.advance-payment__upi strong { color: var(--accent); }
+.booking-form .pay-advance { width: 100%; margin-top: 13px; background: var(--accent); }
+.booking-form .pay-advance:hover { background: var(--ink); }
+.booking-form .pay-advance:disabled { cursor: not-allowed; opacity: .55; transform: none; }
+.booking-form button:disabled { cursor: not-allowed; opacity: .55; transform: none; }
+.screenshot-field input:disabled { cursor: not-allowed; opacity: .55; }
+.screenshot-field small { color: var(--soft-ink); font-size: .7rem; line-height: 1.4; }
+.payment-warning { margin: -3px 0 0; color: var(--soft-ink); font-size: .7rem; line-height: 1.45; }
+.upi-modal { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(43, 25, 32, .56); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); }
+.upi-modal[hidden] { display: none !important; }
+.upi-modal__card { position: relative; width: min(100%, 380px); padding: 38px 30px 30px; border: 1px solid rgba(255,255,255,.75); border-radius: 24px; background: #fff7f9; box-shadow: 0 25px 70px rgba(32, 14, 23, .3); text-align: center; }
+.upi-modal__card .eyebrow { margin-bottom: 12px; }
+.upi-modal__card h2 { font-size: 2rem; line-height: 1.03; }
+.upi-modal__card > p:not(.eyebrow) { margin: 15px 0 20px; color: var(--soft-ink); font-size: .84rem; line-height: 1.55; }
+.upi-modal__card img { display: block; width: min(100%, 230px); min-height: 230px; margin: 0 auto 14px; border: 9px solid white; border-radius: 12px; background: white; box-shadow: 0 9px 25px rgba(67, 36, 47, .1); }
+.upi-modal__card > strong { display: block; color: var(--accent); font: 600 1.2rem "Playfair Display", serif; }
+.upi-modal__card > small { display: block; margin-top: 8px; color: var(--soft-ink); font-size: .73rem; }
+.upi-modal__close { position: absolute; top: 12px; right: 13px; width: 31px; height: 31px; border: 0; border-radius: 50%; background: rgba(215,126,149,.12); color: var(--ink); cursor: pointer; font-size: 1.45rem; line-height: 1; }
+.upi-modal__close:hover { background: var(--accent); color: #fff; }
 footer { display: flex; justify-content: space-between; padding-bottom: 25px; color: var(--soft-ink); font-size: .75rem; }
 footer p { margin: 0; }
 footer a { color: var(--soft-ink); text-decoration: none; }
@@ -98,6 +140,9 @@ footer a:hover { color: var(--accent); }
   .services { margin: 75px 0; }
   .service { grid-template-columns: 35px 1fr; gap: 14px; }
   .service strong { grid-column: 2; }
+  .service-selection { grid-template-columns: 1fr; }
+  .service-selection > div { grid-column: auto; grid-row: auto; }
+  .service-selection button { width: 100%; }
   .about { gap: 25px; margin-bottom: 75px; padding: 32px 26px; }
   .booking { gap: 35px; }
   footer { gap: 8px; flex-direction: column; }
@@ -108,6 +153,7 @@ footer a:hover { color: var(--accent); }
   .trust-row { gap: 17px; }
   .field-row { grid-template-columns: 1fr; }
   .choice-grid { grid-template-columns: 1fr; }
+  .advance-payment__amounts { grid-template-columns: 1fr; }
 }
 
 /* Special offers page */
@@ -307,9 +353,6 @@ footer a:hover { color: var(--accent); }
   .offer-selection__actions button {
     width: 100%;
   }
-}
-.offer-selection[hidden] {
-  display: none !important;
 }
 .home-offers {
   margin: 110px 0;
