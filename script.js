@@ -29,7 +29,6 @@ const upiPaymentModal = document.querySelector("#upi-payment-modal");
 const upiQrCode = document.querySelector("#upi-qr-code");
 const upiQrAmount = document.querySelector("#upi-qr-amount");
 const closeUpiPayment = document.querySelector("#close-upi-payment");
-const themeToggle = document.querySelector("#theme-toggle");
 
 const nidhiWhatsAppNumber = "919871331161";
 const nidhiPaytmUpiId = "8368330997@ptyes";
@@ -49,28 +48,6 @@ let needsAdditionalService = bookingParameters.get("both") === "true";
 let paymentWasStarted = false;
 let paymentReference = "";
 let serviceFirstOfferMode = false;
-
-function setTheme(theme) {
-  document.body.dataset.theme = theme;
-  themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
-  themeToggle.innerHTML = theme === "dark" ? "☀ <span>Light</span>" : "☾ <span>Dark</span>";
-}
-
-try {
-  setTheme(localStorage.getItem("glow-theme") === "dark" ? "dark" : "light");
-} catch {
-  setTheme("light");
-}
-
-themeToggle.addEventListener("click", () => {
-  const theme = document.body.dataset.theme === "dark" ? "light" : "dark";
-  setTheme(theme);
-  try {
-    localStorage.setItem("glow-theme", theme);
-  } catch {
-    // The theme still changes if browser storage is unavailable.
-  }
-});
 
 if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   document.body.classList.add("motion-ready");
