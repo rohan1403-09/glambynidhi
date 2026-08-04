@@ -22,9 +22,12 @@
           <a href="#offers">Offers</a>
           <a href="#about">About</a>
           <a href="#reviews">Reviews</a>
-          <a href="#booking">Book</a>
+          <a href="#services">Book</a>
         </nav>
-        <a class="nav-button" href="#booking">Book a look</a>
+        <div class="navigation-actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">☾ <span>Dark</span></button>
+          <a class="nav-button" href="#services">Book a look</a>
+        </div>
       </header>
 
       <section class="hero" id="top">
@@ -35,7 +38,7 @@
             Personalised makeup and salon services for weddings, celebrations,
             photoshoots, and every moment you want to feel your best.
           </p>
-          <a class="primary-button" href="#booking">Reserve your date <span>↗</span></a>
+          <a class="primary-button" href="#services">Reserve your date <span>↗</span></a>
           <div class="trust-row">
             <div><strong>100+</strong><span>happy clients</span></div>
             <div><strong id="hero-rating">—</strong><span>client rating</span></div>
@@ -44,7 +47,7 @@
         </div>
 
         <div class="hero-image glass">
-          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=85" alt="A soft, elegant makeup look" />
+          <img src="/nidhi.jpeg" alt="A soft, elegant makeup look" />
           <p class="image-note">your glow, your way ✦</p>
         </div>
       </section>
@@ -53,15 +56,15 @@
         <p class="eyebrow">SERVICES</p>
         <p class="section-help">Tap a service to select it for your appointment.</p>
         <div class="service-list" aria-label="Makeup and salon services">
-          <button class="service service-card glass" type="button" data-service="Bridal Makeup" data-price="2500">
+          <button class="service service-card glass" type="button" data-service="HD Makeup" data-price="2000">
             <span class="number">01</span>
-            <div><h2>Bridal Makeup</h2><p>Timeless, long-lasting makeup for your most special day.</p></div>
-            <strong>From ₹2500</strong>
+            <div><h2>HD Makeup</h2><p>Timeless, long-lasting makeup for your most special day. with hairstyling and draping</p></div>
+            <strong>₹2000</strong>
           </button>
-          <button class="service service-card glass" type="button" data-service="Party Makeup" data-price="2500">
+          <button class="service service-card glass" type="button" data-service="Party Makeup" data-price="1500">
             <span class="number">02</span>
             <div><h2>Party Makeup</h2><p>Fresh glam for celebrations, events, and evenings out.</p></div>
-            <strong>From ₹2500</strong>
+            <strong>₹1500</strong>
           </button>
           <button class="service service-card glass" type="button" data-service="Hair Styling" data-price="500">
             <span class="number">03</span>
@@ -73,8 +76,8 @@
           <p>Selected service</p>
           <strong id="selected-service-card-name"></strong>
           <div>
-            <button id="book-selected-service" type="button">Continue to booking</button>
-            <button id="book-service-and-offer" type="button">Service + an offer</button>
+            <button id="book-service-and-offer" type="button">Continue to offers ↗</button>
+            <button id="book-selected-service" type="button">Book only this service</button>
             <button id="cancel-service-card" type="button">Cancel selection</button>
           </div>
         </div>
@@ -190,24 +193,14 @@
         </div>
       </section>
 
-      <section class="instagram-showcase" id="instagram">
-        <div class="instagram-showcase__copy">
-          <p class="eyebrow eyebrow--light">FOLLOW THE LATEST LOOKS</p>
-          <h2>More beauty on<br /><em>Instagram.</em></h2>
-          <p>See Nidhi’s newest makeup looks, salon work, and special offers.</p>
-        </div>
-        <a class="instagram-showcase__link" href="https://www.instagram.com/glambynidhi15/" target="_blank" rel="noopener noreferrer" aria-label="Open Glow by Nidhi on Instagram">
-          <span class="instagram-showcase__icon" aria-hidden="true">◎</span>
-          <span><b>@glambynidhi15</b><small>View Instagram profile ↗</small></span>
-        </a>
-      </section>
+  
 
       <section class="booking glass" id="booking">
         <div class="booking-copy">
           <p class="eyebrow">MAKE AN ENQUIRY</p>
           <h2>Your next beautiful<br /><em>moment starts here.</em></h2>
           <p>Leave your details and we’ll be in touch to confirm availability.</p>
-          <a class="call-option" href="tel:+919871331161">
+          <a class="call-option" href="tel:+918368330997">
             <span>Call Nidhi</span>
             <strong>98713 31161 ↗</strong>
           </a>
